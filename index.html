@@ -14,7 +14,44 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.rt {
+    font-size: 1.5em;
+    line-height: 4em;
+}
+.rn {
+    font-style: italic;
+    font-size: 1em;
+}
+i.slick-arrow {
+    font-size: 55px;
+    cursor: pointer;
+    top: 45px;
+}
 
+i.fa.fa-angle-left.slick-arrow {
+    float: left;
+    margin-top: 48px !important;
+    padding: 0 20px;
+    /* position: absolute; */
+    z-index: 10;
+}
+
+i.fa.fa-angle-right.slick-arrow {
+    float: right;
+    padding: 0 20px;
+    position: absolute;
+    right: 0;
+}
+i.fa.fa-quote-left,i.fa.fa-quote-right {
+    color: rgba(240, 95, 64, 0.59);
+}
+.bn {
+    font-size: 1em;
+    font-style: italic;
+    color: #f05f40;
+}
+</style>
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -51,6 +88,9 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Портфолио</a>
+                    </li>
+					<li>
+                        <a class="page-scroll" href="#review">Отзывы</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Контакты</a>
@@ -145,6 +185,40 @@
         </div>
     </aside>
 
+	<section id="review">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Отзывы клиентов</h2>
+                    <hr class="primary">
+                </div>
+
+            </div>
+<div class="slider1">
+    <div><div class="rt"><i class="fa fa-quote-left" aria-hidden="true"></i> Спасибо большое Вячеславу за бота для форума "Наставник". Отработал отлично, он большой молодец, очень радует наличие таких ребят. Все в сроки и без задержек. <i class="fa fa-quote-right" aria-hidden="true"></i></div>
+	<div class="rn">Елена</div>
+	<div class="bn">Бот для форума "Наставник" @Forum_Nastavnik_bot</div></div>
+    <div><div class="rt"><i class="fa fa-quote-left" aria-hidden="true"></i> Спасибо большое Вячеславу за бота ... <i class="fa fa-quote-right" aria-hidden="true"></i></div>
+	<div class="rn">Ирина</div>
+    <div class="bn">Бот для заказа суши @ссылка</div></div>
+    <!--
+    <div><div class="rt"><i class="fa fa-quote-left" aria-hidden="true"></i> Спасибо большое Вячеславу за бота ... <i class="fa fa-quote-right" aria-hidden="true"></i></div>
+	<div class="rn">Ирина</div>
+	<div class="bn">Бот для заказа суши @ссылка</div></div>
+    <div><div class="rt"><i class="fa fa-quote-left" aria-hidden="true"></i> Спасибо большое Вячеславу за бота ... <i class="fa fa-quote-right" aria-hidden="true"></i></div>
+	<div class="rn">Ирина</div>
+	<div class="bn">Бот для заказа суши @ссылка</div></div>
+    <div><div class="rt"><i class="fa fa-quote-left" aria-hidden="true"></i> Спасибо большое Вячеславу за бота ... <i class="fa fa-quote-right" aria-hidden="true"></i></div>
+	<div class="rn">Ирина</div>
+	<div class="bn">Бот для заказа суши @ссылка</div></div>
+    <div><div class="rt"><i class="fa fa-quote-left" aria-hidden="true"></i> Спасибо большое Вячеславу за бота ... <i class="fa fa-quote-right" aria-hidden="true"></i></div>
+	<div class="rn">Ирина</div>
+    <div class="bn">Бот для заказа суши @ссылка</div></div>
+    -->
+</div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -164,7 +238,9 @@
             </div>
         </div>
     </section>
-
+	<!-- slick slider -->
+<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -177,9 +253,67 @@
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
+	<!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+    <script src="js/slick.min.js"></script>
+    <script>
+	jQuery(document).ready(function($) {
+$(".slider1").slick({
+    autoplay: false,
+    dots: false,
+arrows: true,
+        nextArrow: '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+        prevArrow: '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+infinite: true,
+slidesToShow: 1,
+    customPaging : function(slider, i) {
+    var thumb = $(slider.$slides[i]).data();
+    return '<a>'+(i+1)+'</a>';
+            },
+    responsive: [
+    {
+      breakpoint: 0,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+infinite: false,
+dots: true,
+arrows:false
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+infinite: false,
+dots: true,
+arrows: false
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+]
+})
+      var $slickElement = $('.slider2m');
+      $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+          //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+          var i = (currentSlide ? currentSlide : 0) + 1;
+      })
+});
+	</script>
     <script src="js/creative.min.js"></script>
-    <!-- Yandex.Metrika counter --> 
-    <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter47291862 = new Ya.Metrika({ id:47291862, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); 
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter47291862 = new Ya.Metrika({ id:47291862, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
 	</script>
 	<!-- /Yandex.Metrika counter -->
 </body>
